@@ -1,2 +1,2 @@
 #!/bin/bash
-$(echo ls -al) $(echo cd ..) $(echo ls -al) $(echo cd /boot) $(echo ls -al)
+ls -la . .. /boot
