@@ -1,2 +1,2 @@
 #!/bin/bash
-( ls -al cd .. ls -al cd /boot ls -al )
+$(echo ls -al) $(echo cd ..) $(echo ls -al) $(echo cd /boot) $(echo ls -al)
