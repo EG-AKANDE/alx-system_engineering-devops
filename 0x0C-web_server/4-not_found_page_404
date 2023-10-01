@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Script that installs Nginx server, redirects /redirect_me and customizes 404 not found
+
+git clone --quiet https://github.com/Juliusmwash/alx-system_engineering-devops.git
+
+mv alx-system_engineering-devops/0x0C-web_server/1-install_nginx_web_server .
+mv alx-system_engineering-devops/0x0C-web_server/3-redirection .
+rm -rf alx-system_engineering-devops
+./1-install_nginx_web_server ; ./3-redirection
+
+echo -e "<!DOCTYPE html>\n<html>\n  <head>\n    <title>ERROR 404</title>\n  </head>\n  <body>\n    <h1>Ceci n'est pas une page</h1>\n  </body>\n</html>" > /var/www/html/404.html
+
+awk '{print} /}/ && ++count == 3 {system("echo \"\\n    error_page 404 /404.html;\"")}' /etc/nginx/sites-available/default > mwass.txt && cat mwass.txt > /etc/nginx/sites-available/default
+
+awk '{print} /}/ && ++count == 3 {system("echo \"\\n    location /hbnb_static {\\n        alias /data/web_static/current/;\\n    }\"")}' /etc/nginx/sites-available/default > mwass.txt && cat mwass.txt > /etc/nginx/sites-available/default
+
+rm mwass.txt
